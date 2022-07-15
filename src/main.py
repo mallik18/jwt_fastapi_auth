@@ -4,7 +4,10 @@ from .schemas import AuthDetails
 
 app = FastAPI()
 
+# Its a authentication object
 auth_handler = AuthHandler()
+
+# To hold users username and password like a database it can replaced with SQL or NOSql database
 users = []
 
 @app.post('/register', status_code= 201)

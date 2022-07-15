@@ -1,4 +1,5 @@
-Read Link: https://www.akana.com/blog/what-is-jwt
+Read Link: 1. https://www.akana.com/blog/what-is-jwt
+           2. https://fastapi.tiangolo.com/tutorial/security/oauth2-jwt/
 
 What is JWT?: In simple, JWT is becoming more popular for securing API's.
 
@@ -70,3 +71,13 @@ secret because the private key only needs to exist in one place.
 
 Because of this, the server does not need to keep a database with the information needed to identify the user. 
 For developers, this is great news — the server that issues the JWT and the server that validates it do not have to be the same. 
+
+
+Read link: 1. https://pyjwt.readthedocs.io/en/latest/usage.html#encoding-decoding-tokens-with-rs256-rsa
+           2. https://passlib.readthedocs.io/en/stable/lib/passlib.context.html
+           3. https://jwt.io/
+
+Video talk: https://www.youtube.com/watch?v=xZnOoO3ImSY
+Video: https://www.youtube.com/watch?v=6hTRw_HK3Ts
+
+
