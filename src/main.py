@@ -1,6 +1,7 @@
+""" Modules """
 from fastapi import FastAPI, Depends, HTTPException, status
-from .auth import AuthHandler
-from .schemas import AuthDetails
+from src.auth import AuthHandler
+from src.schemas import AuthDetails
 
 app = FastAPI()
 
@@ -9,12 +10,12 @@ auth_handler = AuthHandler()
 
 # To hold users username and password like a database it can replaced with
 # SQL or NOSql database
-
 users_list = []
 
 
 @app.post('/register', status_code=status.HTTP_201_CREATED)
 def register(auth_details: AuthDetails):
+    """ API to register user with username and password and add to database """
     if any(x['username'] == auth_details.username for x in users_list):
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST,
                             detail='Username is taken')
@@ -30,6 +31,7 @@ def register(auth_details: AuthDetails):
 
 @app.post('/login')
 def login(auth_details: AuthDetails):
+    """ API to login user to send JWT Token """
     user = None
     for user_x in users_list:
         if user_x['username'] == auth_details.username:
@@ -47,9 +49,14 @@ def login(auth_details: AuthDetails):
 
 @app.get('/unprotected')
 def unprotected():
+    """ API for unprotected endpoint """
     return {'hello': 'world'}
 
 
-@app.get('/protected')                         
+@app.get('/protected')
 def protected(username=Depends(auth_handler.auth_wrapper)):
+    """
+    API Protected endpoint which needs JWT Token to
+    access the endpoint
+    """
     return {'name': username}
