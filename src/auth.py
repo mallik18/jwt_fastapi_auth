@@ -26,13 +26,17 @@ from fastapi import HTTPException, Security, status
 from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 
 from passlib.context import CryptContext
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 
 class AuthHandler:
     """ Auth Handler class to implement JWT Authentication"""
     security = HTTPBearer()
     pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
-    secret = "SECRET"
+    SECRET_KEY = os.getenv("SECRET_KEY")
 
     def get_password_hash(self, password):
         """ Function get password hash """
@@ -53,14 +57,14 @@ class AuthHandler:
 
         return jwt.encode(
             payload,
-            self.secret,
+            self.SECRET_KEY,
             algorithm='HS256'
         )
 
     def decode_token(self, token):
         """ Function to decode the JWT Token """
         try:
-            payload = jwt.decode(token, self.secret, algorithms=['HS256'])
+            payload = jwt.decode(token, self.SECRET_KEY, algorithms=['HS256'])
             return payload['sub']
 
         except jwt.ExpiredSignatureError as err:
