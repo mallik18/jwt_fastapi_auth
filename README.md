@@ -1,8 +1,10 @@
 # jwt_fastapi_auth
 
-## Input && Output:
+## Testing with Input && Output:
 
 First start the server: uvicorn src.main:app --reload
+
+You can use either POSTMAN or curl as mentioned below.
 
 Second start providing input with curl:
 
