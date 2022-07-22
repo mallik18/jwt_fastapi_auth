@@ -77,7 +77,5 @@ Read link: 1. https://pyjwt.readthedocs.io/en/latest/usage.html#encoding-decodin
            2. https://passlib.readthedocs.io/en/stable/lib/passlib.context.html
            3. https://jwt.io/
 
-Video talk: https://www.youtube.com/watch?v=xZnOoO3ImSY
-Video: https://www.youtube.com/watch?v=6hTRw_HK3Ts
 
 
