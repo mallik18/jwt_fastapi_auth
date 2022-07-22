@@ -9,7 +9,8 @@ app = FastAPI()
 auth_handler = AuthHandler()
 
 # To hold users username and password like a database it can replaced with
-# SQL or NOSql database
+# SQL or NOSql database. Just to demonstrate purpose I have used list to 
+# store users credentials
 users_list = []
 
 
